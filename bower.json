@@ -1,12 +1,12 @@
 {
   "name": "unl-style",
-  "version": "0.1.0",
+  "version": "0.1.0-beta",
   "homepage": "https://github.com/UNLStudentTechnology/",
   "authors": [
     "Hayden Gascoigne <haydengascoigne@gmail.com>"
   ],
   "description": "Styles for UNL's Polymer based webapps.",
-  "main": "unl-style.html",
+  "main": "dist/unl-style.css",
   "keywords": [
     "unl",
     "style",
