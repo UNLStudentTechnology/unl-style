@@ -57,7 +57,7 @@ html {
 
 body, .body-font {
     font-family: @bodyFontFamily;
-    font-size: 18px;
+    font-size: @baseFontSize;
     font-weight: 400;
     line-height: 25px;
     text-rendering: optimizeLegibility;
@@ -74,21 +74,20 @@ body {
         font-weight: 400;
         margin-top: 0;
         margin-bottom: @lineHeight;
+        line-height: 1em;
     }
 
     & /deep/ h1 { 
         font-size: round(@baseFontSize*@ratio*@ratio*@ratio);
-        line-height: @lineHeight*3;
+        
     }
 
     & /deep/ h2 {
         font-size: round(@baseFontSize*@ratio*@ratio);
-        line-height: @lineHeight*3;
     }
 
     & /deep/ h3 {
         font-size: 4rem;
-        line-height: @lineHeight*2;
     }
 
     & /deep/ h4 {
@@ -96,6 +95,17 @@ body {
         font-weight: 500;
         line-height: @lineHeight;
         margin-bottom: 0.5rem;
+    }
+
+    & /deep/ .subhead {
+        .sans-serif-font();
+        .muted();
+        display: block;
+        font-size: @baseFontSize;
+        letter-spacing: .02em;
+        line-height: 1;
+        margin: @lineHeight/2 0;
+        text-transform: uppercase;
     }
 }
 
@@ -118,14 +128,4 @@ small, aside {
 
 .fa.fa-large {
     font-size: @lineHeight;
-}
-
-/*
-KEEPING IT RESPONSIVE, YO
-=========================
- */
-
-/* Phones */
-@media only screen and (max-width: 480px) {
-    html { font-size: 45%;}
 }

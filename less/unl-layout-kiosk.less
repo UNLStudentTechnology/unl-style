@@ -1,0 +1,65 @@
+unl-layout-kiosk {
+	// .n-background();
+	background-color: @subtlePanel;
+	z-index: 9;
+
+	& [tools] {
+		height: 57px;
+		padding: 8px;
+	}
+
+	& [content] {
+		height: auto;
+		overflow-y: hidden;
+		padding: @lineHeight*2 121px;
+
+		@media (max-width: @breakpointPhone) {
+			padding: @lineHeight*2 @lineHeight;
+		}
+	}
+
+	&::shadow .kiosk-content-container {
+		height: ~"calc(100% - 228px)";
+		height: ~"-webkit-calc(100% - 228px)";
+		height: ~"-moz-calc(100% - 228px)";
+
+		@media (max-width: @breakpointPhone) {
+			height: ~"calc(100% - 57px)";
+			height: ~"-webkit-calc(100% - 57px)";
+			height: ~"-moz-calc(100% - 57px)";
+		}
+	}
+
+	//I don't love having angular specific classes in here
+	//TODO: Deal with it, or figure out something better.
+	&.ng-hide::shadow .kiosk-content {
+		.transform(scale(0.85));
+		.transition(all .5s @easing-swift-out);
+	}
+
+	&::shadow .kiosk-content {
+		background: #fff;
+		border: 1px solid @subtle;
+		border-radius: @borderRadius;
+		box-shadow: 0px 0px 3px darken(@subtle, 3%);
+		overflow: hidden;
+		position: relative;
+		width: 718px;
+		.transform(scale(1));
+		.transition(all .5s @easing-swift-out);
+
+
+		@media (max-width: @breakpointPhone) {
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+			width: 100%;
+		}
+	}
+
+	& /deep/ unl-header {
+		& #unl-header-content {
+			background: @subtlePanel;
+		}
+	}
+}

@@ -27,15 +27,36 @@ body /deep/ textarea {
     &[disabled], .disabled {
     	cursor: not-allowed;
     }
+
+    &[flex] + button {
+        border-radius: 0 @borderRadius @borderRadius 0;
+    }
 }
 
 body /deep/ input[type="checkbox"] {
     
 }
 
+.input-container {    
+    position: relative;
+
+    & input {
+        position: relative;
+        z-index: 2;
+    }
+    
+    &[flex] + button {
+        border-radius: 0 @borderRadius @borderRadius 0;
+    }
+}
+
 .input-help {
-    display: block;
-    margin-bottom: 0;
+    position: absolute !important;
     .small();
     .muted();
+
+    & span {
+        display: block;
+        margin-bottom: 0;
+    }
 }

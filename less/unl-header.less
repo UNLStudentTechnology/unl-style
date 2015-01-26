@@ -1,14 +1,13 @@
-unl-header {
-	margin-bottom: @lineHeight;
-	min-height: 67px;
+unl-header, body /deep/ unl-header {
+	min-height: 43px;
 	text-transform: uppercase;
 	width: 100%;
 	.brand-font();
 
-	@media (max-width: @breakpointTablet)
-	{
-		display: none;
-	}
+	// @media (max-width: @breakpointTablet)
+	// {
+	// 	display: none;
+	// }
 
 	& /deep/ span {
 		display: block;
@@ -16,7 +15,8 @@ unl-header {
 	}
 
 	&::shadow #unl-header-content {
-		background: #fff;
+		// background: @subtlePanel;
+		border-bottom: 1px solid @subtle;
 		height: 42px;
 
 		& #unl-header-content-inner {
@@ -40,11 +40,11 @@ unl-header {
 		top: -61px;
 		width: 119px;
 		z-index: 1;
-		.transition(top .1s ease-out);
+		.transition(top .1s @easing-swift-out);
 
 		&:hover {
 			top: -20px;
-			.transition(top .1s ease-out);
+			.transition(top .1s @easing-swift-out);
 		}
 
 		& #unl-header-social {

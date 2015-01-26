@@ -1,6 +1,7 @@
 button {
 	background-color: @tertiary;
 	border: none;
+	border-radius: @borderRadius;
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
@@ -9,6 +10,10 @@ button {
 
 	&:hover {
 		background-color: darken(@tertiary, 5%);
+	}
+
+	&:active {
+		box-shadow: inset 0 2px 3px fade(#000, 30%);
 	}
 
 	&.button-brand {
@@ -40,6 +45,17 @@ button {
 
 		&:hover {
 			background-color: darken(@muted, 5%);
+		}
+	}
+
+	&.button-outline {
+		border: 1px solid @primaryTextColor;
+		background-color: transparent;
+		color: @primaryTextColor;
+
+		&.white {
+			border-color: #fff;
+			color: #fff;
 		}
 	}
 
