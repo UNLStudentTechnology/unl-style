@@ -74,6 +74,8 @@ Website URL: http://unl-hyena.herokuapp.com
 @import "unl-radio-button";
 @import "unl-toggle-button";
 @import "unl-panel";
+@import "unl-tabs";
+@import "unl-tab";
 
 
 // GENERAL CSS RULES
@@ -152,16 +154,19 @@ sup {
 /* Image Sizes */
 .img-small {
 	height: 32px;
+	line-height: 32px;
 	width: 32px;
 }
 
 .img-medium {
 	height: 48px;
+	line-height: 48px;
 	width: 48px;
 }
 
 .img-large {
 	height: 64px;
+	line-height: 64px;
 	width: 64px;
 }
 
@@ -170,6 +175,12 @@ body /deep/ a {
 	color: @primaryTextColor;
 	cursor: pointer;
 	text-decoration: none;
+}
+
+/* Paper Ripple */
+body /deep/ paper-ripple {
+	.fit();
+	color: @muted;
 }
 
 /* Remove Tap Highlight */

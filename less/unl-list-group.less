@@ -39,13 +39,20 @@ unl-list-group {
 			.img-medium();
 			margin-right: 8px;
 			margin-bottom: 0;
+			overflow: hidden;
 
 			& img {
 				.img-responsive();
 			}
 
-			&.rounded img {
+			&.rounded {
 				border-radius: 50%;
+			}
+
+			&.placeholder {
+				background-color: @muted;
+				color: #fff;
+				text-align: center; 
 			}
 		}
 

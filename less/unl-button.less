@@ -5,11 +5,22 @@ button {
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
+	line-height: 21px;
+	min-height: 46px;
 	outline: none;
 	padding: @lineHeight/2;
+	.transition(background-color .2s @easing-swift-out);
+
+	& core-icon,
+	& unl-icon {
+		height: 22px;
+		margin: -8px 0 -4px;
+		width: 22px;
+	}
 
 	&:hover {
 		background-color: darken(@tertiary, 5%);
+		.transition(none);
 	}
 
 	&:active {
