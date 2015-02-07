@@ -2,7 +2,7 @@ body /deep/ input,
 body /deep/ textarea {
 	background: #fff;
 	border: 1px solid @subtle;
-	border-radius: 0;
+	border-radius: @borderRadius;
 	box-sizing: border-box;
 	font-size: 100%;
 	outline: none;
@@ -12,6 +12,11 @@ body /deep/ textarea {
 	-webkit-appearance: none;
     -moz-appearance: none;
     .transition(.2s ease-in-out border-color);
+
+    &:hover {
+        border-color: @muted;
+        .transition(.2s ease-in-out border-color);
+    }
 
     &:focus {
     	border-color: @tertiary;
@@ -31,6 +36,24 @@ body /deep/ textarea {
     &[flex] + button {
         border-radius: 0 @borderRadius @borderRadius 0;
     }
+
+    &[start] {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &[end] {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+body /deep/ select {
+    display: inline-block;
+    height: 46px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    .unl-button();
 }
 
 body /deep/ input[type="checkbox"] {
@@ -50,6 +73,7 @@ body /deep/ input[type="checkbox"] {
     }
 }
 
+/* Input helper text/valdation text */
 .input-help {
     position: absolute !important;
     .small();
@@ -58,5 +82,80 @@ body /deep/ input[type="checkbox"] {
     & span {
         display: block;
         margin-bottom: 0;
+    }
+}
+
+/* Tag Input (tags-input in Angular) */
+tags-input.unl-tag-input {
+    font-size: @baseFontSize;
+
+    & .host {
+        margin: 0;
+    }
+
+    &.ng-invalid .tags {
+        border-color: @error;
+        box-shadow: none;
+    }
+
+    & .tags {
+        border: 1px solid @subtle;
+        padding: 0 5px 5px 0;
+        .transition(.2s ease-in-out border-color);
+
+        &.focused {
+            box-shadow: none;
+            border-color: @tertiary;
+            outline: none;
+            .transition(.2s ease-in-out border-color);
+        }
+
+        & .tag-item,
+        & .input {
+            font-size: 100%;
+            .sans-serif-font();
+            margin: 5px 0 0 5px;
+        }
+
+        & .tag-item {
+            background: @subtle;
+            border: none;
+            color: @primaryTextColor;         
+            height: auto;
+            line-height: 1em;
+            padding: 10px 8px 7px;
+
+            /* Animation */
+            &.ng-enter {
+                .animate-zoom-in();
+            }
+
+            &.ng-leave {
+                .animate-zoom-out();
+            }
+
+            &.selected {
+                background: @error;
+                color: #fff;
+
+                & .remove-button, & .remove-button:active {
+                    color: #fff;
+                }
+            }
+
+            & .remove-button {
+                &:active {
+                    color: @error
+                }
+            }
+        }
+
+        & .input {
+            height: 36px;
+
+            &.invalid-tag {
+                color: @error;
+            }
+        }
     }
 }

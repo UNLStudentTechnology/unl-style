@@ -1,0 +1,128 @@
+///*------------------------------------*\
+//    #OBJECTS-TOOLTIP
+//\*------------------------------------*/
+@tooltipSpacing: 5px;
+
+// Tooltip base styles
+.tooltip {
+	position: absolute;
+	z-index: 999;
+	border-radius: @borderRadius;
+	opacity: 0;
+	overflow: hidden;
+	pointer-events: none;
+	.transition(all 0.6s @easing-swift-out);
+
+	// Tooltip background
+	& .tooltip__background {
+		.fit();
+		z-index: -1;
+		border-radius: 50%;
+		.transform(scale(0) translateY(50%));
+		.transition(transform 0.6s @easing-swift-out);
+	}
+
+	// Tooltip label
+	& .tooltip__label {
+		display: block;
+		padding: @tooltipSpacing;
+		line-height: 1em;
+		.small();
+		white-space: nowrap;
+	}
+
+	&.tooltip--is-active {
+		opacity: 1;
+
+		&.tooltip--top {
+			.transform(translateY(-(@tooltipSpacing)));
+		}
+
+		&.tooltip--bottom {
+			.transform(translateY(@tooltipSpacing));
+		}
+
+		&.tooltip--left {
+			.transform(translateX(-(@tooltipSpacing)));
+		}
+
+		&.tooltip--right {
+			.transform(translateX(@tooltipSpacing));
+		}
+	}
+}
+
+// Tooltip skin modifiers
+.tooltip--black {
+	& .tooltip__background {
+		background-color: @dark;
+	}
+
+	& .tooltip__label {
+		color: #fff;
+	}
+}
+
+.tooltip--white {
+	& .tooltip__background {
+		background-color: @dark;
+	}
+
+	& .tooltip__label {
+		color: #fff;
+	}
+}
+
+
+// Tooltip direction modifiers
+.tooltip--top {
+	& .tooltip__background {
+		.transform(scale(0) translateY(50%));
+		.transform-origin(center bottom);
+	}
+}
+
+.tooltip--top.tooltip--is-active {
+	& .tooltip__background {
+		.transform(scale(3) translateY(50%));
+	}
+}
+
+.tooltip--bottom {
+	& .tooltip__background {
+		.transform(scale(0) translateY(-50%));
+		.transform-origin(center top);
+	}
+}
+
+.tooltip--bottom.tooltip--is-active {
+	& .tooltip__background {
+		.transform(scale(3) translateY(-50%));
+	}
+}
+
+.tooltip--left {
+	& .tooltip__background {
+		.transform(scale(0) translateX(50%));
+		.transform-origin(right center);
+	}
+}
+
+.tooltip--left.tooltip--is-active {
+	& .tooltip__background {
+		.transform(scale(3) translateX(50%));
+	}
+}
+
+.tooltip--right {
+	& .tooltip__background {
+		.transform(scale(0) translateX(-50%));
+		.transform-origin(left center);
+	}
+}
+
+.tooltip--right.tooltip--is-active {
+	& .tooltip__background {
+		.transform(scale(3) translateX(-50%));
+	}
+}

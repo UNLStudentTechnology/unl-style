@@ -14,8 +14,9 @@ unl-modal {
         -webkit-align-items: center;
         -ms-flex-align: center;
         align-items: center;
-        background: #333;
+        background: transparent;
         bottom: 0;
+        cursor: zoom-out;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -26,19 +27,14 @@ unl-modal {
         justify-content: center;
         left: 0;
         min-width: 320px;
-        opacity: 0;
         overflow: auto;
         -webkit-perspective: 1300;
         perspective: 1300;
         pointer-events: none;
         position: fixed;
         right: 0;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-        -webkit-transition: opacity 0.3s 0, visibility 0 0.3s;
-        transition: opacity 0.3s 0, visibility 0 0.3s;
-        -webkit-transition-timing-function: @easing-swift-out;
-        transition-timing-function: @easing-swift-out;
+        // -webkit-transform: translate3d(0, 0, 0);
+        // transform: translate3d(0, 0, 0);
         top: 0;
         visibility: hidden;
         will-change: opacity;
@@ -46,14 +42,16 @@ unl-modal {
     }
     &[core][shown] {
         pointer-events: all;
-        opacity: 1;
-        -webkit-transition: opacity 0.3s 0, visibility 0 0;
-        transition: opacity 0.3s 0, visibility 0 0;
         visibility: visible;
     }
     &[core]:not([type]),
     &[core][type="takeover"] {
         background: #fff;
+
+        &[content] {
+            border-radius: 0px;
+            box-shadow: none;
+        }
     }
     &[core][pinned="top"] {
         -webkit-box-align: start;
@@ -81,29 +79,97 @@ unl-modal {
     }
     &[content] {
         background: #fff;
+        border-radius: @borderRadius;
+        box-shadow: 0 0 35px fade(#000, 18%);
+        cursor: default;
         display: block;
         max-width: 720px;
-        overflow: auto;
+        max-height: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
         opacity: 0;
-        padding: 16px;
-        padding: 5vmin;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
+        position: relative;
+        // -webkit-transform: translate3d(0, 0, 0);
+        // transform: translate3d(0, 0, 0);
         -webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0, visibility 0 0.3s;
         transition: transform 0.3s, opacity 0.3s 0, visibility 0 0.3s;
-        -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-        transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        -webkit-transition-timing-function: @easing-swift-out;
+        transition-timing-function: @easing-swift-out;
         visibility: hidden;
         will-change: transform, opacity;
+
+        &[type="takeover"] {
+            box-shadow: none;
+        }
+
+        &[shown] {
+            opacity: 1;
+            // -webkit-transform: translate3d(0, 0, 0) !important;
+            // transform: translate3d(0, 0, 0) !important;
+            -webkit-transition: -webkit-transform 0.3s 0.16s, opacity 0.3s 0.16s;
+            transition: transform 0.3s 0.16s, opacity 0.3s 0.16s;
+            visibility: visible;
+        }
+
+        & .content-container {
+            padding: @lineHeight*2;
+        }
+
+        & .modal-buttons.no-frame {
+            border-top: 1px solid @subtle;
+            .layout-horizontal();
+            // margin: @lineHeight*2 -@lineHeight*2 -@lineHeight*2;
+
+            & button, & .unl-button {
+                background-color: transparent;
+                border-right: 1px solid @subtle;
+                border-radius: 0;
+                color: @primaryTextColor;
+                display: block;
+                .flex();
+
+                &:last-child {
+                    border-right: none;
+                }
+
+                &:hover {
+                    background-color: @subtlePanel;
+                }
+
+                &:active {
+                    box-shadow: inset 0 2px 3px fade(#000, 10%);
+                }
+
+                &.button-error {
+                    color: @error;
+
+                    &:hover {
+                        background-color: @error;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        /* Optional modal sizes */
+        & [small] {
+            width: 350px;
+
+            & .content-container {
+                padding: @lineHeight;
+            }
+        }
+
+        & [medium] {
+            width: 540px;
+        }
+
+        & [large] {
+            width: 720px;
+        }
     }
-    &[content][shown] {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0) !important;
-        transform: translate3d(0, 0, 0) !important;
-        -webkit-transition: -webkit-transform 0.3s 0.16s, opacity 0.3s 0.16s;
-        transition: transform 0.3s 0.16s, opacity 0.3s 0.16s;
-        visibility: visible;
-    }
+
+    /* Animation */
     & /deep/ [content][type="takeover"] {
         -webkit-transform: scale(0.85);
         transform: scale(0.85);
@@ -151,8 +217,14 @@ unl-modal {
         transform: rotateY(-70deg) translate3d(0, 0, 0);
     }
     & /deep/ [content][type="lift"] {
-        -webkit-transform: translate3d(0, 0, -300px);
-        transform: translate3d(0, 0, -300px);
+        // -webkit-transform: translate3d(0, 0, -300px);
+        // transform: translate3d(0, 0, -300px);
+        .animate-zoom-out();
+    }
+    & /deep/ [content][type="lift"][shown] {
+        // -webkit-transform: translate3d(0, 0, -300px);
+        // transform: translate3d(0, 0, -300px);
+        .animate-zoom-in();
     }
     & /deep/ [content][type="lift"][position="top"] {
         -webkit-transform: translate3d(0, -30%, -300px);

@@ -1,0 +1,42 @@
+unl-layout-splash {
+	background-color: @brand;
+	color: #fff;
+	display: block;
+	padding: @lineHeight*4;
+	z-index: 101;
+
+	@media (max-width: @breakpointTablet) {
+		padding: @lineHeight;
+	}
+
+	@media (max-width: @breakpointPhone) {
+		padding: @lineHeight/2;
+	}
+
+	& h2 .subhead {
+		color: #fff;
+	}
+
+	&::shadow {
+		& footer {
+			width: 100%;	
+
+			@media (max-width: @breakpointTablet) {
+				& div:nth-child(2) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	/* Animation */
+	&.ng-show {
+		& [left] {
+			.animate-zoom-in();
+		}
+	}
+
+	&.ng-hide {
+		.animate-fade-out();
+	}
+}

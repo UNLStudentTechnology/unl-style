@@ -1,4 +1,6 @@
-button {
+body /deep/ button,
+body /deep/ .unl-button,
+.unl-button {
 	background-color: @tertiary;
 	border: none;
 	border-radius: @borderRadius;
@@ -6,7 +8,8 @@ button {
 	cursor: pointer;
 	display: inline-block;
 	line-height: 21px;
-	min-height: 46px;
+	height: @buttonHeight;
+	opacity: 1;
 	outline: none;
 	padding: @lineHeight/2;
 	.transition(background-color .2s @easing-swift-out);
@@ -72,5 +75,7 @@ button {
 
 	&[disabled] {
     	cursor: not-allowed;
+    	opacity: 0.5;
+    	.transition(opacity .2s @easing-swift-out);
     }
 }

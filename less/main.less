@@ -18,7 +18,7 @@ Website URL: http://unl-hyena.herokuapp.com
 
 @backgroundColor: 	#D5D5D2; //#EAECEE
 @primaryTextColor: 	#595855;
-@brand:			 	#D00000;
+@brand:			 	#DA1A32; //#DD0000
 @tertiary:			#137CBD;
 @muted:				#A0A1A3;
 @subtle:			#E7E8EA; //#EAE9E6
@@ -28,13 +28,15 @@ Website URL: http://unl-hyena.herokuapp.com
 @dark:				#595855;
 @darkAlt:			#454542;
 
-@error:				#CC0000;
+@error:				@brand; //#CC0000
 @success:			#2ECC71;
 @warning: 			#F1C40F;
 @info:				#137CBD;
 
 @borderRadius:		3px;
 @headerHeight:		55px;
+@boxShadow: 		0 3px 3px fade(#000, 10%);
+@buttonHeight:		46px;
 
 @breakpointPhone: 	719px;
 @breakpointTablet: 	943px;
@@ -59,6 +61,7 @@ Website URL: http://unl-hyena.herokuapp.com
 @import "unl-toolbar";
 @import "unl-layout";
 @import "unl-layout-kiosk";
+@import "unl-layout-splash";
 @import "unl-user-profile";
 @import "unl-progress";
 @import "unl-header";
@@ -74,8 +77,11 @@ Website URL: http://unl-hyena.herokuapp.com
 @import "unl-radio-button";
 @import "unl-toggle-button";
 @import "unl-panel";
+@import "unl-card";
 @import "unl-tabs";
 @import "unl-tab";
+@import "unl-button-group";
+@import "unl-tooltip";
 
 
 // GENERAL CSS RULES

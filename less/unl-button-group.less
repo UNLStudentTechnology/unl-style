@@ -1,0 +1,32 @@
+unl-button-group {
+	display: block;
+	box-sizing: border-box;
+	max-height: 46px;
+
+	& > * {
+		border-right: 1px solid darken(@tertiary, 10%) !important;
+
+		&:last-child {
+			border-right: none !important;
+		}
+	}
+
+	&[input] {
+
+		&[end] {
+			& > *:first-child {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+
+			& * {
+				border-radius: 0;
+			}
+
+			& *:last-child {
+				border-top-right-radius: @borderRadius;
+				border-bottom-right-radius: @borderRadius;
+			}
+		}
+	}
+}

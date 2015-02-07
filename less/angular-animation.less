@@ -9,10 +9,10 @@
 /* Easing */
 @easing-swift-out: cubic-bezier(.55,0,.1,1);
 
-.animate-default {
+.animate-default(@length: .5s) {
 	position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-	.animation(.5s @easing-swift-out);
+  //-webkit-transform: translate3d(0, 0, 0);
+	.animation(@length @easing-swift-out);
 }
 
 .animate-page {
@@ -28,6 +28,43 @@
     width: 100%;
   }
 }
+
+/**
+ * ======================
+ * FADE IN
+ * ======================
+ */
+/* Fade In */
+.animate-fade.ng-enter,
+.animate-fade-in {
+  .animate-default(.6s);
+  .animation-name(fade-in);
+}
+
+.animate-fade.ng-leave,
+.animate-fade-out {
+  .animate-default();
+  .animation-name(fade-out);
+}
+
+@-webkit-keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-webkit-keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+/* End Fade In */
 
 /**
  * =====================
@@ -219,7 +256,7 @@
 /* Zoom */
 .animate-zoom.ng-enter,
 .animate-zoom-in {
-  .animate-default();
+  .animate-default(.6s);
   .animation-name(zoom-in);
 }
 
@@ -230,20 +267,22 @@
 }
 
 @-webkit-keyframes zoom-in {
-  from { .transform(scale(0.85)) }
-  to { .transform(scale(1)) }
+  0% { .transform(scale(0.75)); opacity: 0; }
+  70% { .transform(scale(1.04)) }
+  100% { .transform(scale(1)); opacity: 1; }
 }
 @keyframes zoom-in {
-  from { .transform(scale(0.85)) }
-  to { .transform(scale(1)) }
+  0% { .transform(scale(0.75)); opacity: 0; }
+  70% { .transform(scale(1.04)) }
+  100% { .transform(scale(1)); opacity: 1; }
 }
 
 @-webkit-keyframes zoom-out {
-  from { .transform(scale(1)) }
-  to { .transform(scale(0.85)) }
+  from { .transform(scale(1)); opacity: 1; }
+  to { .transform(scale(0.75)); opacity: 0; }
 }
 @keyframes zoom-out {
-  from { .transform(scale(1)) }
-  to { .transform(scale(0.85)) }
+  from { .transform(scale(1)); opacity: 1; }
+  to { .transform(scale(0.75)); opacity: 0; }
 }
 /* End Zoom */

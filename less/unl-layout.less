@@ -1,4 +1,4 @@
-@unl-layout-drawer-padding: 5px @lineHeight/2;
+@unl-layout-drawer-padding: 8px @lineHeight/2;
 @unl-layout-bg-color: #fff;
 
 unl-layout {
@@ -32,7 +32,7 @@ unl-layout {
 
 			& unl-list-item-header {
 				margin-top: @lineHeight/2;
-				padding: @unl-layout-drawer-padding;
+				padding: 5px @lineHeight/2;
 			}
 
 			& unl-list-item-user::shadow .unl-list-item {
@@ -50,20 +50,6 @@ unl-layout {
 		& #main-content {
 			height: 100%;
 			padding-top: 0;
-		}
-
-		& unl-toolbar:first-child {
-			background: @unl-layout-bg-color;
-			border-bottom: 1px solid @subtle;
-			color: @primaryTextColor;
-
-			& unl-icon-button {
-				color: @primaryTextColor;
-			}
-
-			& unl-drawer-toggle {
-				border-right-color: @subtle;
-			}
 		}
 	}
 
