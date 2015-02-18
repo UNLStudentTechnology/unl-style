@@ -36,30 +36,38 @@ body /deep/ textarea {
     &[flex] + button {
         border-radius: 0 @borderRadius @borderRadius 0;
     }
+}
 
-    &[start] {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+body /deep/ input[start],
+body /deep/ textarea[start],
+.input-container[start] input,
+.input-container[start] textarea {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
 
-    &[end] {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+body /deep/ input[end],
+body /deep/ textarea[end],
+.input-container[end] input,
+.input-container[end] textarea {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 body /deep/ select {
     display: inline-block;
+    font-size: 100%;
     height: 46px;
     -moz-appearance: none;
     -webkit-appearance: none;
-    .unl-button();
+    .unl-icon-button();
 }
 
 body /deep/ input[type="checkbox"] {
     
 }
 
+/* Input Container (Used in self-validation Angular directive) */
 .input-container {    
     position: relative;
 
