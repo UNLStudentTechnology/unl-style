@@ -25,11 +25,10 @@ body /deep/ unl-toolbar {
 		max-height: 100%;
 	}
 
-	& unl-icon-button {
+	& /deep/ unl-icon-button {
 		height: 40px;
 		padding: 7px;
 		position: relative;
-		
 	}
 
 	& /deep/ span {
@@ -59,11 +58,4 @@ body /deep/ unl-toolbar {
 		text-transform: uppercase;
 		.brand-font();
 	}
-
-	& unl-drawer-toggle {
-		border-right-color: @subtle;
-		padding: 6px 6px 6px 0;
-		margin: -8px 8px -8px 0;
-	}
-
 }
