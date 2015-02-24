@@ -4,4 +4,23 @@ unl-empty-content {
 	max-width: 100%;
 	text-align: center;
 	width: 100%;
+
+	&::shadow .empty-content-container {
+		margin: @lineHeight auto;
+
+		& h2 {
+			margin-bottom: 0;
+
+		}
+
+		& .xlarge {
+			.icon-xlarge();
+			top: 0;
+		}
+	}
+
+	& core-icon,
+	& unl-icon {
+		top: -2px;
+	}
 }
