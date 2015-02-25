@@ -9,62 +9,84 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 unl-toggle-button {
   display: inline-block;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent;
 
   &:focus {
     outline: none;
   }
 
+  /* ID selectors should not be overriden by users. */
   & /deep/ #toggleContainer {
-    height: 16px;
     position: relative;
-    width: 64px;
+    width: 48px;
+    height: 14px;
 
-    /* Disabled state */
     &[disabled] {
       opacity: 0.3;
       pointer-events: none;
     }
 
-    &[checked] #checkedBar {
-      width: 100%;
-    }
-
     & #toggleBar {
-      background-color: @muted;
-      border-radius: 5px;
-      height: 10px;
-      left: 6px;
-      top: 3px;
-      pointer-events: none;
       position: absolute;
-      width: 50px;
-
-      &[checked] {
-        background-color: @success;
-      }
+      height: 100%;
+      width: 100%;
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 1;
+      transition: background-color linear .08s;
     }
 
-    & #toggleRadio {
-      position: absolute;
-      left: 0;
-      padding: 8px 48px 8px 0;
-      margin: -8px -48px -8px 0;
-      transition: -webkit-transform linear .08s;
-      transition: transform linear .08s;
+    & .toggle-bar {
+      background-color: @subtle;
+    }
 
-      &[checked] {
-        -webkit-transform: translate(48px, 0);
-        transform: translate(48px, 0);
-        padding: 8px 0 8px 48px;
-        margin: -8px 0 -8px -48px;
-      }
+    & .toggle-button {
+      background-color: @subtle;
+    }
+
+    &[checked] .toggle {
+      background-color: @success;
+    }
+
+    &[checked] .toggle-ink {
+      color: @success;
+    }
+
+    & .toggle-ink {
+      color: @subtle;
+    }
+
+    & #toggleButton {
+      position: absolute;
+      top: -3px;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.4);
+      transition: -webkit-transform linear .08s, background-color linear .08s;
+      transition: transform linear .08s, background-color linear .08s;
 
       &.dragging {
         -webkit-transition: none;
         transition: none;
       }
+    }
+
+    & #ink {
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      width: 48px;
+      height: 48px;
+      pointer-events: none;
+    }
+
+    &[checked] #toggleBar {
+      opacity: 1;
+    }
+
+    &[checked] #toggleButton {
+      -webkit-transform: translate(28px, 0);
+      transform: translate(28px, 0);
     }
   }
 }
