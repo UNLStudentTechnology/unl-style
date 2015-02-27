@@ -10,13 +10,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 unl-toast {
   background: @dark;
   border-radius: @borderRadius;
-  bottom: 12px;
+  top: 12px;
   box-sizing: border-box;
   box-shadow: 0 2px 5px 0 fade(#000, 25%);
   color: #fff;
   cursor: default;
   display: inline-block;
-  left: 12px;
+  left: auto;
+  right: 12px;
   min-height: 48px;
   min-width: 288px;
   padding: @lineHeight/2 20px;
@@ -54,6 +55,8 @@ unl-toast {
     border-radius: 0;
     bottom: 0;
     left: 0;
+    top: auto;
+    right: 0;
     min-width: 0;
     padding: 14px 15px 12px;
     width: 100%;

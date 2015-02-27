@@ -36,12 +36,16 @@
  */
 /* Fade In */
 .animate-fade.ng-enter,
+.animate-fade.ng-show-add.ng-hide-add-active,
+.animate-fade.ng-hide-remove.ng-hide-remove-active,
 .animate-fade-in {
   .animate-default(.6s);
   .animation-name(fade-in);
 }
 
 .animate-fade.ng-leave,
+.animate-fade.ng-show-remove.ng-hide-remove-active,
+.animate-fade.ng-hide-add.ng-hide-add-active,
 .animate-fade-out {
   .animate-default();
   .animation-name(fade-out);

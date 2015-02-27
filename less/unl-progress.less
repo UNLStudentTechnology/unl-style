@@ -1,13 +1,13 @@
 unl-progress {
 
 	display: block;
-	height: 8px;
+	height: 5px;
 	width: 100%;
 
 	&::shadow #progressContainer {
 		position: relative;
 		height: 100%;
-		background: lighten(@subtle, 2%);
+		background: @subtlePanel;
 	}
 
 	&::shadow #activeProgress, 
@@ -23,7 +23,37 @@ unl-progress {
 	}
 
 	&::shadow #secondaryProgress {
-		background: #87ceac;
+		background: lighten(@brand, 15%);
 	}
 
+	&::shadow #activeProgress.indeterminate {
+	  -webkit-transform-origin: center center;
+	  transform-origin: center center;
+	  -webkit-animation: indeterminate-bar 2s linear infinite;
+	  animation: indeterminate-bar 2s linear infinite;
+	}
+
+	@-webkit-keyframes indeterminate-bar {
+	  0% {
+	    -webkit-transform: translate(-50%) scaleX(0);
+	  }
+	  50% {
+	    -webkit-transform: translate(0%) scaleX(0.3);
+	  }
+	  100% {
+	    -webkit-transform: translate(50%) scaleX(0);
+	  }
+	}
+
+	@keyframes indeterminate-bar {
+	  0% {
+	    transform: translate(-50%) scaleX(0);
+	  }
+	  50% {
+	    transform: translate(0%) scaleX(0.3);
+	  }
+	  100% {
+	    transform: translate(50%) scaleX(0);
+	  }
+	}
 }

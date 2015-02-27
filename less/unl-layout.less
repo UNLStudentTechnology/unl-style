@@ -16,29 +16,28 @@ unl-layout {
 	& [drawer]  {
 		background: @unl-layout-bg-color;
 
-			border-right: 1px solid @subtle;
-			height: 100%;
-			padding: 0;
+		border-right: 1px solid @subtle;
+		height: 100%;
+		padding: 0;
 
-			& /deep/ .unl-list-item {
-				padding: @unl-layout-drawer-padding;
+		& /deep/ .unl-list-item {
+			padding: @unl-layout-drawer-padding;
 
-				&.unl-list-item-link:hover,
-				&.unl-list-item-link.active,
-				&.active {
-					background: @subtlePanel;
-				}
+			&.unl-list-item-link:hover,
+			&.unl-list-item-link.active,
+			&.active {
+				background: @subtlePanel;
 			}
+		}
 
-			& unl-list-item-header {
-				margin-top: @lineHeight/2;
-				padding: 5px @lineHeight/2;
-			}
+		& unl-list-item-header {
+			margin-top: @lineHeight/2;
+			padding: 5px @lineHeight/2;
+		}
 
-			& unl-list-item-user::shadow .unl-list-item {
-				padding: 9px @lineHeight/2;
-			}
-		
+		& unl-list-item-user::shadow .unl-list-item {
+			padding: 9px @lineHeight/2;
+		}
 	}
 
 	& [main] {
@@ -57,5 +56,29 @@ unl-layout {
 		padding: @lineHeight;
 		position: relative;
 		.flex();
+	}
+
+	/* Quickly change the layout to a brand color */
+	&.brand {
+		& [drawer] {
+			background: @brand;
+			border-right-color: darken(@brand, 10%);
+			color: #fff;
+
+			& unl-list-item-header {
+				color: fade(#000, 30%);
+				font-weight: bold;
+			}
+
+			& /deep/ .unl-list-item {
+				border-bottom-color: fade(#000, 10%);
+
+				&.unl-list-item-link:hover,
+				&.unl-list-item-link.active,
+				&.active {
+					background: fade(#000, 5%);
+				}
+			}
+		}
 	}
 }
