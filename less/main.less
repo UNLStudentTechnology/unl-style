@@ -69,6 +69,7 @@ Website URL: http://unl-hyena.herokuapp.com
 @import "unl-list-item-label";
 @import "unl-list-item-user";
 @import "unl-list-item-header";
+@import "unl-list-item-boxed";
 @import "unl-input";
 @import "unl-toast";
 @import "unl-modal";
@@ -177,6 +178,12 @@ sup {
 	width: 64px;
 }
 
+.img-xlarge {
+	height: 128px;
+	line-height: 128px;
+	width: 128px;
+}
+
 /* Icon Sizes */
 .icon-large {
 	height: 64px;
@@ -201,6 +208,14 @@ body /deep/ a {
 body /deep/ paper-ripple {
 	.fit();
 	color: @muted;
+}
+
+/* Section Divider */
+.divider {
+	height: 1px;
+	background-color: @subtle;
+	width: 100%;
+	.margin-y();
 }
 
 /* Remove Tap Highlight */

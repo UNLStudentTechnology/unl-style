@@ -13,6 +13,10 @@ unl-layout-kiosk {
 		overflow-y: hidden;
 		padding: @lineHeight*2 121px;
 
+		&[wide] {
+			padding: @lineHeight*2;
+		}
+
 		@media (max-width: @breakpointPhone) {
 			padding: @lineHeight*2 @lineHeight;
 		}

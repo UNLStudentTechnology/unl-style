@@ -271,12 +271,13 @@ body.fullbleed {
 }
 
 /* With gutters */
-html /deep/ [layout] {
-  & [gutters] {
+html /deep/ [layout],
+html [layout] {
+  &[gutters] {
     margin-left: -15px;
   }
 
-  & [gutters] > * {
+  &[gutters] > * {
     padding-left: 15px;
   }
 }
