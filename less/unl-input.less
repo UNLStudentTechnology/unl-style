@@ -1,5 +1,130 @@
+/*
+ * @license
+ * Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+ */
+
 unl-input {
-	border: 1px solid @subtle;
-	border-radius: @borderRadius;
-	padding: 4px 8px;
+	display: inline-block;
+	outline: none;
+	margin-bottom: @lineHeight/2;
+	text-align: inherit;
+	padding: 0;
+
+	&:hover::shadow .unfocused-underline {
+		background-color: @muted;
+	}
+
+	&[focused]::shadow .floated-label {
+		color: @tertiary;
+	}
+
+	&::shadow {
+		&[disabled] .underline {
+			border-bottom: 1px dashed @subtle;
+		}
+
+		& .underline {
+			height: 0px;
+			overflow: visible;
+		}
+
+		& .label {
+			padding: 5px 0 2px;
+			background: transparent;
+			pointer-events: none;
+		}
+
+		& .label-text {
+			display: inline-block;
+			line-height: 1;
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			-moz-transform-origin: 0% 0%;
+			-webkit-transform-origin: 0% 0%;
+			transform-origin: 0% 0%;
+		}
+
+		& .floated-label {
+			font-size: 0.75em;
+			background: transparent;
+			white-space: nowrap;
+		}
+
+		::-webkit-input-placeholder {
+			color: @subtle;
+		}
+
+		::-moz-placeholder {
+			color: @subtle;
+		}
+
+		:-ms-input-placeholder {
+			color: @subtle;
+		}
+
+		& .mirror-text {
+			padding: 5px 0 2px;
+			max-width: 100%;
+			white-space: nowrap;
+		}
+
+		& .error-text {
+			font-size: 0.75em;
+			padding: 0.5em 0;
+		}
+
+		& .error-icon {
+			height: 20px;
+			width: 20px;
+		}
+
+		& .unfocused-underline {
+			background-color: @subtle;
+			height: 1px;
+		}
+
+		& .focused-underline {
+			background-color: @tertiary;
+			height: 2px;
+			-webkit-transform: none;
+			transform: none;
+		}
+
+		&[invisible] {
+		  visibility: hidden;
+		}
+
+		&[animated] {
+			visibility: visible !important;
+			-webkit-transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+			transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		&[multiline] .mirror-text {
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+
+		& .focused-underline[invisible] {
+			-webkit-transform: scale3d(0,1,1);
+			transform: scale3d(0,1,1);
+		}
+	}
+
+	& input[is="core-input"] {
+		padding: 0;
+		margin: 0 0 2px;
+		width: 100%;
+	}
+}
+
+unl-list-item-header + unl-input {
+	margin-top: @lineHeight/2;
 }

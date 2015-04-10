@@ -24,6 +24,26 @@ unl-header, body /deep/ unl-header {
 			max-width: 1441px;
 			padding: 0 @lineHeight/2;
 			width: 100%;
+
+			& #unl-long-name {
+				& #unl-long-name-default {
+					display: block;
+				}
+
+				& #unl-long-name-alt {
+					display: none;
+				}
+
+				@media (max-width: @breakpointPhone) {
+					& #unl-long-name-default {
+						display: none;
+					}
+
+					& #unl-long-name-alt {
+						display: block;
+					}
+				}
+			}
 		}
 	}
 
@@ -42,10 +62,10 @@ unl-header, body /deep/ unl-header {
 		z-index: 1;
 		.transition(top .1s @easing-swift-out);
 
-		&:hover {
-			top: -20px;
-			.transition(top .1s @easing-swift-out);
-		}
+		// &:hover {
+		// 	top: -20px;
+		// 	.transition(top .1s @easing-swift-out);
+		// }
 
 		& #unl-header-social {
 			border-bottom: 1px solid fade(#fff, 30%);

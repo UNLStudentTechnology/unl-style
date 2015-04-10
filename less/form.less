@@ -54,15 +54,20 @@ body /deep/ textarea[end],
     border-bottom-left-radius: 0;
 }
 
+/* Standard HTML Selects */
 body /deep/ select {
+    .unl-icon-button();
+    background: transparent no-repeat url('data:image/svg+xml;utf8,<svg width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g><g><path d="M10.6.6L6 5.2 1.4.6 0 2l6 6 6-6L10.6.6z" opacity=".54" fill="#000"/><path d="M-6-8h24v24H-6z"/></g></g></g></svg>');
+    background-position: ~"calc(100% - 10px)" 50%;
     display: inline-block;
     font-size: 100%;
     height: 46px;
+    padding-right: 28px;
     -moz-appearance: none;
     -webkit-appearance: none;
-    .unl-icon-button();
 }
 
+/* Checkbox */
 body /deep/ input[type="checkbox"] {
     
 }

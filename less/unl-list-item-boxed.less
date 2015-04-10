@@ -3,10 +3,16 @@ body /deep/ unl-list-item-boxed {
 	margin-bottom: @lineHeight;
 	text-align: center;
 
+	&.auto-height::shadow .unl-list-item {
+		min-height: 0;
+	}
+
 	&::shadow .unl-list-item {
 		// background: transparent;
 		border: 1px solid @subtle;
 		border-radius: @borderRadius;
+		box-sizing: border-box;
+		min-height: 180px;
 		padding: @lineHeight;
 		.transition(border-color .2s @easing-swift-out);
 

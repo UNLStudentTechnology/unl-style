@@ -11,14 +11,15 @@ unl-layout-kiosk {
 	& [content] {
 		height: auto;
 		overflow-y: hidden;
-		padding: @lineHeight*2 121px;
 
 		&[wide] {
-			padding: @lineHeight*2;
+			& .content-container {
+				padding: @lineHeight*2;
+			}
 		}
 
-		@media (max-width: @breakpointPhone) {
-			padding: @lineHeight*2 @lineHeight;
+		& .content-container {
+			padding: @lineHeight*2 121px;
 		}
 	}
 
@@ -46,19 +47,33 @@ unl-layout-kiosk {
 		border: 1px solid @subtle;
 		border-radius: @borderRadius;
 		box-shadow: 0px 0px 3px darken(@subtle, 3%);
-		overflow: hidden;
+		overflow: scroll;
 		position: relative;
 		width: 718px;
 		.transform(scale(1));
 		.transition(all .5s @easing-swift-out);
 
+		max-height: ~"calc(100% + 114px)";
+		max-height: ~"-webkit-calc(100% + 114px)";
+		max-height: ~"-moz-calc(100% + 114px)";
 
 		@media (max-width: @breakpointPhone) {
 			border: none;
 			border-radius: 0;
 			box-shadow: none;
 			width: 100%;
+
+			max-height: ~"calc(100% + 114px)";
+			max-height: ~"-webkit-calc(100% + 114px)";
+			max-height: ~"-moz-calc(100% + 114px)";
 		}
+	}
+
+	&[fullscreen]::shadow .kiosk-content {
+		border: none;
+		border-radius: 0;
+		height: 100vh;
+		width: 100%;
 	}
 
 	& /deep/ unl-header {

@@ -299,3 +299,13 @@ html [layout] {
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px 5px 5px 5px;
 }
+
+/* Fixed Sizing */
+html /deep/ [layout] > :not([flex]) {
+  &[four] {
+    width: 33.33333333%;
+  }
+  &[six ] {
+    width: 50%;
+  }
+}

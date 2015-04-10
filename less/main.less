@@ -16,7 +16,7 @@ Website URL: http://unl-hyena.herokuapp.com
 // LESS VARIABLES (Others can be found inside of other modules)
 // =========
 
-@backgroundColor: 	#D5D5D2; //#EAECEE
+@backgroundColor: 	#D5D5D5; //#EAECEE
 @primaryTextColor: 	#595855;
 @brand:			 	#DA1A32; //#DD0000
 @tertiary:			#137CBD;
@@ -62,11 +62,12 @@ Website URL: http://unl-hyena.herokuapp.com
 @import "unl-layout";
 @import "unl-layout-kiosk";
 @import "unl-layout-splash";
+@import "unl-layout-fullscreen";
 @import "unl-user-profile";
 @import "unl-progress";
 @import "unl-header";
 @import "unl-list-group";
-@import "unl-list-item-label";
+@import "unl-list-item-details";
 @import "unl-list-item-user";
 @import "unl-list-item-header";
 @import "unl-list-item-boxed";
@@ -84,6 +85,9 @@ Website URL: http://unl-hyena.herokuapp.com
 @import "unl-button-group";
 @import "unl-tooltip";
 @import "unl-spinner";
+@import "unl-overlay";
+@import "unl-chip";
+@import "availability-calendar";
 
 
 // GENERAL CSS RULES
@@ -102,6 +106,12 @@ body {
 	position: relative;
 }
 
+/* Content Container */
+body /deep/ .content-container {
+	padding: @lineHeight;
+	position: relative;
+}
+
 /* Text Styles */
 sup {
 	font-size: 50%;
@@ -109,11 +119,13 @@ sup {
 	top: -1.3rem;
 }
 
-.muted {
+.muted,
+.text-muted {
 	color: @muted !important;
 }
 
-.small {
+.small,
+.text-small {
 	font-size: 70%;
 }
 
@@ -182,6 +194,10 @@ sup {
 	height: 128px;
 	line-height: 128px;
 	width: 128px;
+}
+
+.img-rounded {
+	border-radius: 50%;
 }
 
 /* Icon Sizes */

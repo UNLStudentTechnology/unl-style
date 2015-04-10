@@ -1,0 +1,31 @@
+/* Booking Calendar */
+availability-calendar {
+}
+
+.booking-slot {
+	background: @subtle;
+	margin: 5px;
+
+	&:hover {
+		background: darken(@subtle, 10%);
+	}
+
+	&.panel-success:hover {
+		background-color: darken(@success, 10%) !important;
+	}
+
+	& input {
+		display: none;
+	}
+
+	& input[disabled] ~ label {
+		cursor: not-allowed;
+	}
+
+	& label {
+		cursor: pointer;
+		display: block;
+		font-size: 80%;
+		padding: 5px;
+	}
+}

@@ -1,0 +1,17 @@
+.overlay-action-container {
+	position: relative;
+
+	& .overlay-action {
+		background: fade(#000, 30%);
+		z-index: 99;
+		opacity: 0;
+		.animate-fade-out();
+		.fit();
+	}
+
+	&:hover .overlay-action {
+		opacity: 1;
+		.animate-fade-in();
+		position: absolute;
+	}
+}

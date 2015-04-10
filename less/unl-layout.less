@@ -20,7 +20,12 @@ unl-layout {
 		height: 100%;
 		padding: 0;
 
+		& .divider {
+			margin: 0;
+		}
+
 		& /deep/ .unl-list-item {
+			border: none;
 			padding: @unl-layout-drawer-padding;
 
 			&.unl-list-item-link:hover,
@@ -31,12 +36,19 @@ unl-layout {
 		}
 
 		& unl-list-item-header {
+			// border-top: 1px solid @subtle;
 			margin-top: @lineHeight/2;
 			padding: 5px @lineHeight/2;
 		}
 
 		& unl-list-item-user::shadow .unl-list-item {
 			padding: 9px @lineHeight/2;
+		}
+
+		& footer {
+			padding: 9px @lineHeight/2;
+			.small();
+			.muted();
 		}
 	}
 
@@ -55,7 +67,7 @@ unl-layout {
 	& /deep/ .content-container {
 		padding: @lineHeight;
 		position: relative;
-		.flex();
+		//.flex();
 	}
 
 	/* Quickly change the layout to a brand color */

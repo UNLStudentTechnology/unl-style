@@ -6,16 +6,7 @@ unl-panel {
 
 	&.well {
 		background: @subtlePanel;
-		border-top: 1px solid @subtle;
-
-		&::before {
-			box-shadow: 0px 0px 3px fade(#000, 10%);
-			display: block;
-			content: '';
-			height: 1px;
-			position: absolute;
-			top: -1px;
-			width: 100%;
-		}
+		box-shadow: inset 0 1px 3px fade(#000, 5%),inset 0 -1px 0 fade(#000, 5%);
+		// border-top: 1px solid @subtle;
 	}
 }

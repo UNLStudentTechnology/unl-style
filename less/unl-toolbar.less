@@ -11,6 +11,10 @@ body /deep/ unl-toolbar {
 	position: relative;
 	width: 100%;
 
+	& [tall] {
+		height: @headerHeight*2;
+	}
+
 	&[tabs] {
 		border-bottom-width: 0;
 	}
@@ -34,6 +38,9 @@ body /deep/ unl-toolbar {
 	& /deep/ span {
 		display: block;
 		padding: 11px 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	& /deep/ unl-icon-button /deep/ span {
